@@ -29,6 +29,8 @@ export interface ButtonType extends TouchableOpacityProps {
   type?: "primary" | "secondary" | "default" | "transparent";
 }
 
+export type ColorSchemeType = "light" | "dark";
+
 export interface ColorType {
   default: string;
   opacity10: string;
@@ -167,21 +169,20 @@ export interface UserProviderTypes {
   children: React.ReactNode;
 }
 export interface SelectBoxOptionType {
-  value: string,
-  key: string,
-  disable?: boolean
+  value: string;
+  key: string;
+  disable?: boolean;
 }
 
 export interface SelectBoxType extends SelectListProps {
-  onChange: (value: string) => void,
+  onChange: (value: string) => void;
   data: SelectBoxOptionType[];
-  style?: ViewStyle,
-  label?: string,
-  labelStyle?: TextStyle,
-  error?: string | boolean,
-  errorStyle?: TextStyle,
-  inputParentStyle?: ViewStyle,
-  inputStyles?: TextStyle,
-  inputBorderColor?: ColorValue,
-
+  style?: ViewStyle;
+  label?: string;
+  labelStyle?: TextStyle;
+  error?: string | boolean;
+  errorStyle?: TextStyle;
+  inputParentStyle?: ViewStyle;
+  inputStyles?: TextStyle;
+  inputBorderColor?: ColorValue;
 }

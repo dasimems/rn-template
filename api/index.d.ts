@@ -1,67 +1,4 @@
 import { AxiosError, AxiosResponse } from "axios";
-import Login from "../screens/login/Login";
-
-export interface LoginBodyType {
-  phoneNumber?: string;
-  password?: string;
-}
-export interface SendChangePasswordOTPType {
-  phoneNumber?: string;
-}
-export interface AddBVNBodyType {
-  bvn?: string;
-}
-export interface SetPinBodyType {
-  pin?: string;
-}
-
-export interface UserDetailsType {
-  userID?: string;
-  userType?: string;
-  expiredAt?: Date;
-  profile_image?: string;
-}
-export interface LoginResponseType extends UserDetailsType {
-  token?: string;
-}
-
-export interface AddBVNResponseType {
-  token?: string;
-  message?: string;
-}
-export interface SignUpResponseType {
-  phoneNumber?: string;
-}
-export interface VerifyOTPBodyType {
-  phoneNumber?: string;
-  otp?: string;
-}
-export interface ResetPasswordBodyType {
-  password?: string;
-}
-export interface SetPinResponseType {
-  message?: string;
-}
-
-export interface ErrorResponseType {
-  message?: string;
-  timeStamp?: Date;
-  status?: string;
-}
-
-export type AllBodyType = LoginBodyType &
-  AddBVNBodyType &
-  SetPinBodyType &
-  VerifyOTPBodyType &
-  ResetPasswordBodyType &
-  SendChangePasswordOTPType;
-
-export type AllResponseType = ErrorResponseType &
-  AllBodyType &
-  LoginResponseType &
-  AddBVNResponseType &
-  SignUpResponseType &
-  SetPinResponseType;
 
 export type AllRequestType = "post" | "get" | "delete" | "put";
 
@@ -72,6 +9,63 @@ export interface ApiURLType {
   url: string;
   returnToken?: boolean;
 }
+export interface NextOfKinType {
+  name: string;
+  relationship: string;
+  address: string;
+  email: string;
+  phone: string;
+  province: string;
+  city: string;
+  postal: string;
+}
+
+export interface UserSettingType {
+  two_factor_authentication: boolean;
+}
+
+export interface UserDetailsType {
+  id: string;
+  name?: string;
+  first_name?: string;
+  last_name?: string;
+  avatar: string;
+  code: string;
+  phone?: string;
+  email: string;
+  address?: string;
+  province?: string;
+  city?: string;
+  postal?: string;
+  gender?: string;
+  has_info: boolean;
+  has_next_of_kin: boolean;
+  next_of_kin?: UserNextOfKinType;
+  email_verified: boolean;
+  phone_verified?: boolean;
+  suspended: boolean;
+  settings: UserSettingType;
+}
+export interface LoginBodyType {
+  email: string;
+  password: string;
+}
+export interface ForgotPasswordType {
+  email: string;
+}
+export interface LoginResponseType extends UserDetailsType {
+  token?: string;
+}
+
+export interface ErrorResponseType {
+  message?: string;
+  timeStamp?: Date;
+  status?: string;
+}
+
+export type AllBodyType = LoginBodyType;
+
+export type AllResponseType = ErrorResponseType & AllBodyType;
 
 export interface ResponseType {
   type: ResponseStatus;
@@ -79,9 +73,8 @@ export interface ResponseType {
   statusText: string;
   response: {
     message: string;
-    time: string;
     data: AllResponseType;
-  };
+  } & AllResponseType;
 }
 export interface ApiErrorResponseType {
   type: ResponseStatus;

@@ -2,36 +2,44 @@ import { ApiURLType } from "./index.d";
 import { requestType } from "./_variables";
 
 export const apiVersion = "/api/v1",
-  baseURL = `https://isds-finance-be-api-c5c7396d3a18.herokuapp.com${apiVersion}`,
+  baseURL = ``,
   loginApi: ApiURLType = {
     method: requestType.post,
-    url: "/auth/login",
+    url: "/login"
   },
   signupApi: ApiURLType = {
     method: requestType.post,
-    url: "/registration/send-otp",
+    url: "/register"
   },
-  verifyRegistrationOTPApi: ApiURLType = {
+  sendEmailOTPApi: ApiURLType = {
     method: requestType.post,
-    url: "/registration/verify-otp",
+    url: "/email/send"
   },
-  addBVNApi: ApiURLType = {
+  verifyEmailOTPApi: ApiURLType = {
     method: requestType.post,
-    url: "/registration/add-bvn",
+    url: "/email/verify"
   },
-  setPinApi: ApiURLType = {
+  sendPhoneOTPApi: ApiURLType = {
     method: requestType.post,
-    url: "/registration/set-pin",
+    url: "/phone/send"
   },
-  changePasswordApi: ApiURLType = {
-    method: requestType.put,
-    url: "/forgot-password/reset-password",
-  },
-  sendChangePasswordOTPApi: ApiURLType = {
+  verifyPhoneOTPApi: ApiURLType = {
     method: requestType.post,
-    url: "/forgot-password/send-otp",
+    url: "/phone/verify"
   },
-  verifyChangePasswordOTPApi: ApiURLType = {
+  forgotPasswordApi: ApiURLType = {
     method: requestType.post,
-    url: "/forgot-password/verify-otp",
+    url: "/password/request"
+  },
+  forgotPasswordVerificationApi: ApiURLType = {
+    method: requestType.post,
+    url: "/password/verify"
+  },
+  changeForgottenPasswordApi: ApiURLType = {
+    method: requestType.post,
+    url: "/password"
+  },
+  logoutApi: ApiURLType = {
+    method: requestType.post,
+    url: "/logout"
   };

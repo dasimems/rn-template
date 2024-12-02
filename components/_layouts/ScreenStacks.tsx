@@ -8,6 +8,9 @@ import { useActionContext } from "@/context";
 import { ScreenNames } from "@/utils/_variables";
 import { whiteColor } from "@/assets/colors";
 import GettingStarted from "@/screens/GettingStarted";
+import GettingStartedTwo from "@/screens/GettingStartedTwo";
+import { GettingStartedImageThree } from "@/assets/images";
+import GettingStartedThree from "../../screens/GettingStartedThree";
 
 const Stack = createNativeStackNavigator<any>();
 
@@ -51,6 +54,14 @@ const ScreenStacks: React.FC<ScreenStackType> = ({ fontLoaded }) => {
           <Stack.Screen
             name={ScreenNames.GettingStarted.name}
             component={GettingStarted}
+          />
+          <Stack.Screen
+            name={ScreenNames.GettingStartedTwo.name}
+            component={GettingStartedTwo}
+          />
+          <Stack.Screen
+            name={ScreenNames.GettingStartedThree.name}
+            component={GettingStartedThree}
           />
         </Stack.Group>
       </Stack.Navigator>

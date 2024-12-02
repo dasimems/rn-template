@@ -33,6 +33,20 @@ export const padding = 20,
       label: "Getting Started",
       activeNames: ["GettingStarted"],
       showIn: []
+    },
+    GettingStartedTwo: {
+      name: "GetStartedTwo",
+      Icon: undefined,
+      label: "Getting Started",
+      activeNames: ["GetStartedTwo"],
+      showIn: []
+    },
+    GettingStartedThree: {
+      name: "GetStartedThree",
+      Icon: undefined,
+      label: "Getting Started",
+      activeNames: ["GetStartedThree"],
+      showIn: []
     }
   };
 

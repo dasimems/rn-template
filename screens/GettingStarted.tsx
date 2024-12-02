@@ -1,30 +1,39 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Container from "@/components/_layouts/Container";
 import { primaryColor, whiteColor } from "@/assets/colors";
-import { windowWidth } from "@/utils/_variables";
+import { ScreenNames, windowWidth } from "@/utils/_variables";
+import { GettingStartedImageOne } from "@/assets/images";
+import Button from "@/components/_general/Button";
+import TextComponent from "@/components/_general/TextComponent";
+import { useNavigation } from "@react-navigation/native";
 
 const GettingStarted = () => {
+  const { navigate } = useNavigation();
   return (
     <Container>
-      <View
+      <Button
+        action={() => {
+          navigate(ScreenNames.GettingStartedTwo.name as never);
+        }}
         style={{
-          flex: 1 / 2,
+          position: "absolute",
+          top: 40,
+          right: 40,
+          width: "auto",
+          zIndex: 9,
           backgroundColor: primaryColor.default,
-          borderBottomLeftRadius: windowWidth * 0.3,
-          padding: 10
+          borderRadius: 90
         }}
       >
-        <View
-          style={{
-            width: "100%",
-            height: "100%",
-            backgroundColor: whiteColor.default,
-            borderRadius: windowWidth * 0.1,
-            borderBottomLeftRadius: windowWidth * 0.3
-          }}
-        ></View>
-      </View>
+        <TextComponent color={whiteColor.default}>Next</TextComponent>
+      </Button>
+      <ImageBackground
+        source={GettingStartedImageOne}
+        style={{
+          ...StyleSheet.absoluteFillObject
+        }}
+      />
     </Container>
   );
 };
